@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css는 언더바 표기법 */
+        .border_box {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>자바스크립트 공부하기 - 4단계</h1>
+    <hr />
+    <div id="box1" class="border_box">
+        <p>첫번째글</p>
+    </div>
+    <button id="btn1">첫번째박스 값 채우기</button>
+    <br /><br />
+
+    <div id="box2" class="border_box">
+        <p>첫번째글</p>
+    </div>
+    <button id="btn2">두번째박스 값 채우기</button>
+    <br /><br />
+
+    <script>
+        let list = ["두번째글", "세번째글", "네번째글"];
+        let data = "두번째글";
+
+        let btn1Dom = document.querySelector("#btn1");
+        btn1Dom.addEventListener("click", ()=>{
+            let box1Dom = document.querySelector("#box1");
+            let p1Dom = document.createElement("p"); // p태그 생성
+            // console.log(p1Dom);
+            p1Dom.innerHTML = data;
+            box1Dom.appendChild(p1Dom);
+        });
+
+        let btn2Dom = document.querySelector("#btn2");
+        btn2Dom.addEventListener("click", () => {
+            let box2Dom = document.querySelector("#box2");
+
+            // for of가 자바의 for each
+            for(let i of list) { // let i의 타입은 String
+                let pDom = document.createElement("p");
+                pDom.innerHTML = i;
+                box2Dom.appendChild(pDom);
+            }
+        })
+
+        // 두번째박스 값채우기 버튼 클릭하면 btn2Dom 찾아서 for문 돌려서 채우기
+    </script>
+</body>
+</html>
